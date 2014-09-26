@@ -93,4 +93,3 @@ class NP_CommentLink extends NucleusPlugin {
 	}
 
 }
-?>
