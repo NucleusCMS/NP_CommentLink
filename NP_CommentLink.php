@@ -38,11 +38,12 @@ class NP_CommentLink extends NucleusPlugin {
 
 	function init() { 
 		// include language file for this plugin
-		$language = ereg_replace( '[\\|/]', '', getLanguageName());
-		if (file_exists($this->getDirectory().$language.'.php')) {
-			include_once($this->getDirectory().$language.'.php');
+		$language = str_replace( array('\\','/'), '', getLanguageName());
+		$NP_CommentLink_dir = $this->getDirectory();
+		if (is_file("{$NP_CommentLink_dir}{$language}.php")) {
+			include_once("{$NP_CommentLink_dir}{$language}.php");
 		} else {
-			include_once($this->getDirectory().'english.php');
+			include_once("{$NP_CommentLink_dir}english.php");
 		}
 	}
 
